@@ -15,11 +15,12 @@ public class ResultAspect {
 
 
     //point cut let us restrict the access
-    @AfterReturning(pointcut = "execution(*  aop_demo_api.aop_demo_api.service .*.*(..)",
-    returning = "result")
+    @AfterReturning(
+            pointcut = "execution(* aop_demo_api.aop_demo_api.service.*.*(..))",
+            returning = "result" )
     public void AfterThrowingAspect(JoinPoint joinPoint,Object result){
-        log.info( "method{}  returned{}"+joinPoint.getSignature().getName(),result);
-    }
+        log.info("method {} returned {}",
+                joinPoint.getSignature().getName(), result);    }
 
 
 

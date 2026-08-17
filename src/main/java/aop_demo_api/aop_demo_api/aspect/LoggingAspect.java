@@ -14,13 +14,13 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
 
 
-    @Before("execution(*  aop_demo_api.aop_demo_api.service .*.*(..)")
-    public void beforeAspect(JoinPoint joinPoint){
-        log.info("method started:"+joinPoint.getSignature().getName());
+    @Before("execution(* aop_demo_api.aop_demo_api.service.*.*(..))")
+    public void beforeAspect(JoinPoint joinPoint) {
+        log.info("Method started: {}", joinPoint.getSignature().getName());
     }
 
-    @After("execution(*  aop_demo_api.aop_demo_api.service .*.*(..)")
-    public void afterAspect(JoinPoint joinPoint){
-        log.info("method finished:"+joinPoint.getSignature().getName());
+    @After("execution(* aop_demo_api.aop_demo_api.service.*.*(..))")
+    public void afterAspect(JoinPoint joinPoint) {
+        log.info("Method finished: {}", joinPoint.getSignature().getName());
     }
 }
