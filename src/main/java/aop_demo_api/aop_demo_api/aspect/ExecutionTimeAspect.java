@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class ExecutionTimeAspect {
 
 
-    @Around("@annotation(* aop_demo_api.aop_demo_api.annotation.TrackExecution.*.*(..))")
+    @Around("@annotation(aop_demo_api.aop_demo_api.annotation.TrackExecution)")
     public Object aroundMethod(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
         Object result = joinPoint.proceed();
